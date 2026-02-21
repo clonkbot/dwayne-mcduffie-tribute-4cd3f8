@@ -1,0 +1,339 @@
+/* Dwayne McDuffie Tribute - Comic Book Aesthetic */
+
+:root {
+  --milestone-yellow: #FFD700;
+  --milestone-blue: #1E90FF;
+  --milestone-red: #DC143C;
+  --bg-dark: #0a0a0a;
+}
+
+/* Tailwind color extensions */
+@layer utilities {
+  .bg-milestone-yellow { background-color: var(--milestone-yellow); }
+  .bg-milestone-blue { background-color: var(--milestone-blue); }
+  .bg-milestone-red { background-color: var(--milestone-red); }
+  .text-milestone-yellow { color: var(--milestone-yellow); }
+  .text-milestone-blue { color: var(--milestone-blue); }
+  .text-milestone-red { color: var(--milestone-red); }
+  .border-milestone-yellow { border-color: var(--milestone-yellow); }
+  .border-milestone-blue { border-color: var(--milestone-blue); }
+  .border-milestone-red { border-color: var(--milestone-red); }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-dark);
+  font-family: 'Outfit', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+}
+
+.hero-title {
+  text-shadow: 4px 4px 0 var(--milestone-red), 8px 8px 0 rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    text-shadow: 2px 2px 0 var(--milestone-red), 4px 4px 0 rgba(0,0,0,0.3);
+  }
+}
+
+.stroke-text {
+  -webkit-text-stroke: 2px var(--milestone-yellow);
+  text-stroke: 2px var(--milestone-yellow);
+}
+
+@media (max-width: 768px) {
+  .stroke-text {
+    -webkit-text-stroke: 1px var(--milestone-yellow);
+    text-stroke: 1px var(--milestone-yellow);
+  }
+}
+
+/* Halftone Pattern Overlay */
+.halftone-overlay {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+@media (max-width: 768px) {
+  .halftone-overlay {
+    background-size: 4px 4px;
+  }
+}
+
+/* Comic Action Lines */
+.action-lines {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 20px,
+    rgba(255,255,255,0.02) 20px,
+    rgba(255,255,255,0.02) 22px
+  );
+}
+
+/* Comic Burst Effect */
+.comic-burst {
+  background: conic-gradient(
+    from 0deg,
+    var(--milestone-yellow) 0deg,
+    transparent 20deg,
+    var(--milestone-yellow) 40deg,
+    transparent 60deg,
+    var(--milestone-yellow) 80deg,
+    transparent 100deg,
+    var(--milestone-yellow) 120deg,
+    transparent 140deg,
+    var(--milestone-yellow) 160deg,
+    transparent 180deg,
+    var(--milestone-yellow) 200deg,
+    transparent 220deg,
+    var(--milestone-yellow) 240deg,
+    transparent 260deg,
+    var(--milestone-yellow) 280deg,
+    transparent 300deg,
+    var(--milestone-yellow) 320deg,
+    transparent 340deg,
+    var(--milestone-yellow) 360deg
+  );
+}
+
+/* Speech Bubble */
+.speech-bubble {
+  position: relative;
+  border: 4px solid #000;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .speech-bubble {
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
+  }
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid white;
+}
+
+@media (max-width: 768px) {
+  .speech-bubble::after {
+    bottom: -20px;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid white;
+  }
+}
+
+.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 24px solid transparent;
+  border-right: 24px solid transparent;
+  border-top: 34px solid black;
+}
+
+@media (max-width: 768px) {
+  .speech-bubble::before {
+    bottom: -26px;
+    border-left: 18px solid transparent;
+    border-right: 18px solid transparent;
+    border-top: 24px solid black;
+  }
+}
+
+/* Quote Section */
+.quote-section {
+  background: linear-gradient(180deg, var(--milestone-yellow) 0%, #FFA500 100%);
+}
+
+/* Comic Panel Styling */
+.comic-panel {
+  position: relative;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .comic-panel {
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.3);
+  }
+}
+
+.comic-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 10px 10px 0 rgba(0,0,0,0.4);
+}
+
+@media (max-width: 768px) {
+  .comic-panel:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.4);
+  }
+}
+
+.comic-panel-large {
+  position: relative;
+  box-shadow: 12px 12px 0 rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .comic-panel-large {
+    box-shadow: 6px 6px 0 rgba(0,0,0,0.3);
+  }
+}
+
+/* Timeline Item Animation */
+.timeline-item {
+  opacity: 0;
+  animation: slideIn 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+.timeline-item:nth-child(4) { animation-delay: 0.4s; }
+.timeline-item:nth-child(5) { animation-delay: 0.5s; }
+.timeline-item:nth-child(6) { animation-delay: 0.6s; }
+.timeline-item:nth-child(7) { animation-delay: 0.7s; }
+.timeline-item:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Work Tab Styling */
+.work-tab {
+  position: relative;
+  overflow: hidden;
+}
+
+.work-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.work-tab:hover::before {
+  left: 100%;
+}
+
+/* Stat Card Animation */
+.stat-card {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .stat-card:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Staggered Animation for Hero */
+.stagger-1 { animation: fadeUp 0.8s ease 0.1s forwards; opacity: 0; }
+.stagger-2 { animation: fadeUp 0.8s ease 0.2s forwards; opacity: 0; }
+.stagger-3 { animation: fadeUp 0.8s ease 0.4s forwards; opacity: 0; }
+.stagger-4 { animation: fadeUp 0.8s ease 0.6s forwards; opacity: 0; }
+.stagger-5 { animation: fadeUp 0.8s ease 0.8s forwards; opacity: 0; }
+.stagger-6 { animation: fadeUp 0.8s ease 1.0s forwards; opacity: 0; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Milestone Logo Glow */
+.milestone-logo-container::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, var(--milestone-yellow) 0%, transparent 70%);
+  opacity: 0.3;
+  z-index: -1;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--milestone-yellow);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFE44D;
+}
+
+/* Selection Color */
+::selection {
+  background: var(--milestone-yellow);
+  color: #000;
+}
+
+/* Responsive adjustments for horizontal scroll on mobile */
+@media (max-width: 1024px) {
+  .works-section .flex.overflow-x-auto {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .works-section .flex.overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+}
